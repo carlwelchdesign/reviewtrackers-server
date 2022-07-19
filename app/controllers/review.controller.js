@@ -1,13 +1,12 @@
 const db = require("../models");
 const Review = db.reviews;
+const Comment = db.comment;
 const Op = db.Sequelize.Op;
 
 // Retrieve all Review from the database.
 exports.findAllReviews = (req, res) => {
   const content = req.query.content;
   var condition = content ? { content: { [Op.like]: `%${content}%` } } : null;
-
-  console.log({condition})
 
   Review.findAll({ where: condition })
     .then(data => {
