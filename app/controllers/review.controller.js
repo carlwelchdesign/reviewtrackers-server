@@ -1,6 +1,5 @@
 const db = require("../models");
 const Review = db.reviews;
-const Comment = db.comment;
 const Op = db.Sequelize.Op;
 
 // Retrieve all Review from the database.
