@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.38)
 # Database: reviews_db
-# Generation Time: 2022-07-19 07:39:46 +0000
+# Generation Time: 2022-07-19 18:52:52 +0000
 # ************************************************************
 
 
@@ -26,15 +26,24 @@
 DROP TABLE IF EXISTS `comments`;
 
 CREATE TABLE `comments` (
-  `id` varchar(255) NOT NULL,
+  `id` int(255) NOT NULL AUTO_INCREMENT,
   `author` varchar(255) DEFAULT NULL,
   `comment` text,
-  `review_id` varchar(255) NOT NULL,
-  `createdAt` datetime NOT NULL,
-  `updatedAt` datetime NOT NULL,
-  PRIMARY KEY (`id`,`review_id`)
+  `createdAt` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `updatedAt` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `review_id` varchar(255) DEFAULT '',
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+LOCK TABLES `comments` WRITE;
+/*!40000 ALTER TABLE `comments` DISABLE KEYS */;
+
+INSERT INTO `comments` (`id`, `author`, `comment`, `createdAt`, `updatedAt`, `review_id`)
+VALUES
+	(2,'Frank Zappa','Everybody believes in something and everybody, by virtue of the fact that they believe in something, uses that something to support their own existence.','2022-07-19 18:52:39','2022-07-19 18:52:39','5d7072030bef7a653b0b80a4');
+
+/*!40000 ALTER TABLE `comments` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table reviews

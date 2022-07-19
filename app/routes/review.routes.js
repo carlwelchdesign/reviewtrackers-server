@@ -19,8 +19,8 @@ module.exports = app => {
   // // Update a Review Comment with id
   // router.put("/review/comment/:id", reviews.updateComment);
 
-  // // Delete a Review Comment with id
-  // router.delete("/review/comment/:id", reviews.deleteComment);
+  // Delete a Review Comment with id
+  router.delete("/review/comment/:id", comment.deleteComment);
 
   app.use('/', router);
 };

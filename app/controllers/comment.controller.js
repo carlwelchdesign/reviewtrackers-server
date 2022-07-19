@@ -1,6 +1,5 @@
 const db = require("../models");
 const Comment = db.comment;
-const Op = db.Sequelize.Op;
 
 // Create and Save a new Review
 exports.createComment = (req, res) => {
@@ -19,12 +18,9 @@ exports.createComment = (req, res) => {
     review_id: req.body.review_id
   };
 
-  console.log({comment})
-
   // Save Review Comment in the database
   Comment.create(comment)
     .then(data => {
-      console.log({data})
       res.send(data);
     })
     .catch(err => {
