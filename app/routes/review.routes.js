@@ -1,28 +1,26 @@
 module.exports = app => {
   const reviews = require("../controllers/review.controller.js");
+  const comment = require("../controllers/comment.controller.js");
 
   var router = require("express").Router();
-
-  // Create a new Review
-  router.post("/reviews", reviews.create);
-
+  
   // Retrieve all reviews
-  router.get("/reviews", reviews.findAll);
-
-  // Retrieve all published reviews
-  // router.get("/published", reviews.findAllPublished);
-
+  router.get("/reviews", reviews.findAllReviews);
+  
   // Retrieve a single Review with id
-  router.get("/reviews/:id", reviews.findOne);
+  router.get("/reviews/:id", reviews.findOneReview);
 
-  // Update a Review with id
-  router.put("/reviews/:id", reviews.update);
+  // Create a new Review Comment
+  router.post("/review/comment", comment.createComment);
 
-  // // Delete a Review with id
-  // router.delete("/:id", reviews.delete);
+  // Update a Review Comment with id
+  router.get("/review/comment/:id", comment.findOneComment);
 
-  // // Delete all reviews
-  // router.delete("/", reviews.deleteAll);
+  // // Update a Review Comment with id
+  // router.put("/review/comment/:id", reviews.updateComment);
+
+  // // Delete a Review Comment with id
+  // router.delete("/review/comment/:id", reviews.deleteComment);
 
   app.use('/', router);
 };

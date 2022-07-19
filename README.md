@@ -12,5 +12,5 @@ docker-compose up
 
 ### Start Server
 ```
-node server
+npm start
 ```

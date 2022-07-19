@@ -20,5 +20,6 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 db.reviews = require("./review.model.js")(sequelize, Sequelize);
+db.comment = require("./comment.model.js")(sequelize, Sequelize);
 
 module.exports = db;
