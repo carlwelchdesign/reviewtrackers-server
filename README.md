@@ -5,10 +5,7 @@
 npm install
 ```
 
-### Run Docker
-```
-docker-compose up
-```
+### Install Docker
 
 ### Start Server
 ```
