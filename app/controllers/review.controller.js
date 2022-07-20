@@ -9,7 +9,6 @@ exports.findAllReviews = (req, res) => {
 
   Review.findAll({ where: condition })
     .then(data => {
-      // res.setHeader('custom_header_name', 'abcde');
       res.send(data);
     })
     .catch(err => {
