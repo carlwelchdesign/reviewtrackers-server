@@ -15,7 +15,7 @@ module.exports = (sequelize, Sequelize) => {
     },
     review_id: {
       type: Sequelize.STRING,
-    },
+    }
   });
 
   return Comment;
