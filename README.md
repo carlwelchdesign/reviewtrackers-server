@@ -1,6 +1,6 @@
 # ReviewTrackers Server
-## Prerequisites
-### Install Docker
+Prerequisites:
+* Install Docker
 
 ## Project setup
 ```
