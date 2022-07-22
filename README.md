@@ -10,3 +10,18 @@ npm install
 ```
 npm start
 ```
+
+Or run separately:
+
+```
+docker compose up
+```
+
+```
+node server
+```
+
+reset Docker and kill database:
+```
+docker-compose down --rmi all
+```
