@@ -1,5 +1,6 @@
 const db = require("../models");
 const Comment = db.comment;
+const Review = db.reviews;
 
 // Create and Save a new Review
 exports.createComment = (req, res) => {
@@ -18,6 +19,8 @@ exports.createComment = (req, res) => {
     review_id: req.body.review_id
   };
 
+  Review.update({ hasComment : 1 },{ where : { id : comment.review_id }});
+
   // Save Review Comment in the database
   Comment.create(comment)
     .then(data => {
@@ -34,7 +37,6 @@ exports.createComment = (req, res) => {
 // Find a single Review Comment with an id
 exports.findOneComment = (req, res) => {
   const id = req.params.id;
-
   Comment.findOne({where: { review_id: id }})
     .then(data => {
       res.send(data);
@@ -49,7 +51,6 @@ exports.findOneComment = (req, res) => {
 // Update a Review Comment by the id in the request
 exports.updateComment = (req, res) => {
   const id = req.params.id;
-
   Comment.update(req.body, {
     where: { id: id }
   })
@@ -74,6 +75,9 @@ exports.updateComment = (req, res) => {
 // Delete a Review Comment with the specified id in the request
 exports.deleteComment = (req, res) => {
   const id = req.params.id;
+  const review_id = req.params.review_id;
+
+  Review.update({ hasComment : 0 },{ where : { id : review_id }});
 
   Comment.destroy({
     where: { id: id }

@@ -19,8 +19,8 @@ module.exports = (sequelize, Sequelize) => {
     content: {
       type: Sequelize.TEXT
     },
-    comment_id: {
-      type: Sequelize.INTEGER,
+    hasComment: {
+      type: Sequelize.BOOLEAN,
     },
   });
 
