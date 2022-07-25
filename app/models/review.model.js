@@ -21,6 +21,8 @@ module.exports = (sequelize, Sequelize) => {
     },
     hasComment: {
       type: Sequelize.BOOLEAN,
+      defaultValue: false,
+
     },
   });
 
